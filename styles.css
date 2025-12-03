@@ -1,0 +1,979 @@
+/* Paleta personalizada */
+:root {
+    --verde-1: #051F20;
+    --verde-2: #0B2B26;
+    --verde-3: #163832;
+    --verde-4: #235347;
+    --verde-5: #8EB69B;
+    --verde-6: #DAF1DE;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris-claro: #f5f5f5;
+    --gris-medio: #e0e0e0;
+}
+
+/* Sobrescribir colores de Bootstrap con la nueva paleta */
+.text-success {
+    color: var(--verde-4) !important;
+}
+
+.bg-success {
+    background-color: var(--verde-4) !important;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* ---------------- NAVBAR ---------------- */
+
+
+/* ---------------- BOTONES ---------------- */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-yellow {
+    background-color: var(--verde-5);
+    color: var(--verde-1);
+    font-weight: 600;
+}
+
+.btn-pink {
+    background-color: var(--verde-3);
+    color: var(--blanco);
+    font-weight: 600;
+}
+
+.btn-green {
+    background-color: var(--verde-4);
+    color: var(--blanco);
+    font-weight: 600;
+}
+
+/* ---------------- BANNER ---------------- */
+/* Banner con imagen de fondo */
+.banner {
+    position: relative;
+    background: url('./Img/banner.webp') center/cover no-repeat;
+    background-attachment: fixed;
+    color: var(--blanco);
+    text-align: center;
+    padding: 8rem 2rem;
+    margin-top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay oscuro encima de la imagen */
+.banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* oscurece la imagen */
+    z-index: 1;
+}
+
+/* Hero contenido encima del overlay */
+.hero {
+    position: relative;
+    z-index: 2;
+    padding-top: 120px;
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.hero .raised {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0;
+}
+
+
+/* ---------------- INICIATIVAS ---------------- */
+.initiatives {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+}
+
+.card {
+    flex: 1;
+    padding: 2.5rem;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* Tarjeta Verde - Glass con acentos verdes */
+.card-green {
+    background: linear-gradient(135deg, 
+        rgba(35, 83, 71, 0.12) 0%, 
+        rgba(35, 83, 71, 0.05) 100%);
+    color: var(--verde-1);
+    border-color: rgba(35, 83, 71, 0.25);
+}
+
+.card-green::before {
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(35, 83, 71, 0.6), 
+        rgba(35, 83, 71, 0.3), 
+        transparent);
+}
+
+.card-green:hover {
+    background: linear-gradient(135deg, 
+        rgba(35, 83, 71, 0.18) 0%, 
+        rgba(35, 83, 71, 0.08) 100%);
+    border-color: rgba(35, 83, 71, 0.4);
+    box-shadow: 0 16px 48px rgba(35, 83, 71, 0.15);
+}
+
+/* Tarjeta Amarilla - Glass con acentos verdes claros */
+.card-yellow {
+    background: linear-gradient(135deg, 
+        rgba(142, 182, 155, 0.12) 0%, 
+        rgba(142, 182, 155, 0.05) 100%);
+    color: var(--verde-1);
+    border-color: rgba(142, 182, 155, 0.25);
+}
+
+.card-yellow::before {
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(142, 182, 155, 0.6), 
+        rgba(142, 182, 155, 0.3), 
+        transparent);
+}
+
+.card-yellow:hover {
+    background: linear-gradient(135deg, 
+        rgba(142, 182, 155, 0.18) 0%, 
+        rgba(142, 182, 155, 0.08) 100%);
+    border-color: rgba(142, 182, 155, 0.4);
+    box-shadow: 0 16px 48px rgba(142, 182, 155, 0.2);
+}
+
+/* Tarjeta Rosa - Glass con acentos verdes medios */
+.card-pink {
+    background: linear-gradient(135deg, 
+        rgba(22, 56, 50, 0.12) 0%, 
+        rgba(22, 56, 50, 0.05) 100%);
+    color: var(--verde-1);
+    border-color: rgba(22, 56, 50, 0.25);
+}
+
+.card-pink::before {
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(22, 56, 50, 0.6), 
+        rgba(22, 56, 50, 0.3), 
+        transparent);
+}
+
+.card-pink:hover {
+    background: linear-gradient(135deg, 
+        rgba(22, 56, 50, 0.18) 0%, 
+        rgba(22, 56, 50, 0.08) 100%);
+    border-color: rgba(22, 56, 50, 0.4);
+    box-shadow: 0 16px 48px rgba(22, 56, 50, 0.15);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .initiatives {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+    
+    .card {
+        padding: 2rem;
+    }
+}
+
+/* ---------------- MISION Y VISION ---------------- */
+.mission-vision {
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 2rem;
+    gap: 2rem;
+}
+
+.block {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.block-valores {
+    justify-content: space-between;
+}
+
+.block-valores h2 {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.block-valores p {
+    margin: auto 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block h2 {
+    margin-bottom: 1rem;
+    color: var(--verde-4);
+    font-weight: 700;
+}
+
+.block p {
+    color: #2c3e50;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* ---------------- PROYECTOS ---------------- */
+.projects {
+    background-color: var(--amarillo);
+    color: var(--negro);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.project {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+    background-color: var(--verde-1);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ---------------- NAVBAR CON BOOTSTRAP ---------------- */
+.custom-navbar {
+    background-color: var(--verde-4);
+    box-shadow: 0 2px 8px rgba(5, 31, 32, 0.3), 0 4px 16px rgba(5, 31, 32, 0.15);
+    padding: 0.25rem 0;
+    margin: 1rem auto;
+    border-radius: 50px;
+    left: 1rem;
+    right: 1rem;
+    width: calc(100% - 2rem);
+    max-width: none;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.custom-navbar .container {
+    max-width: 100%;
+    padding: 0.25rem 1.5rem;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.custom-navbar .navbar-brand {
+    color: var(--blanco) !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.custom-navbar .navbar-brand:hover {
+    color: var(--verde-6) !important;
+}
+
+.custom-navbar .navbar-toggler {
+    border: 2px solid var(--blanco);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    flex-shrink: 0;
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.custom-navbar .nav-link {
+    color: var(--blanco) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.custom-navbar .nav-link:hover {
+    color: var(--blanco) !important;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-navbar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+.custom-navbar .btn {
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    white-space: nowrap;
+}
+
+.custom-navbar .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .custom-navbar {
+        margin: 0.5rem auto;
+        border-radius: 20px;
+        left: 0.5rem;
+        right: 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: none;
+    }
+    
+    .custom-navbar .container {
+        padding: 0.75rem 1rem;
+    }
+    
+    .custom-navbar .navbar-brand {
+        font-size: 1.1rem;
+        max-width: calc(100% - 60px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .custom-navbar .navbar-nav {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .custom-navbar .nav-item {
+        margin: 0.25rem 0;
+        width: 100%;
+    }
+    
+    .custom-navbar .nav-link {
+        text-align: center;
+        margin: 0;
+        padding: 0.75rem 1rem !important;
+        width: 100%;
+    }
+    
+    .custom-navbar .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar {
+        margin: 0.5rem auto;
+        border-radius: 15px;
+        left: 0.5rem;
+        right: 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: none;
+    }
+    
+    .custom-navbar .container {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .custom-navbar .navbar-brand {
+        font-size: 0.9rem;
+        max-width: calc(100% - 50px);
+    }
+    
+    .custom-navbar .navbar-toggler {
+        padding: 0.3rem 0.5rem;
+    }
+}
+
+/* Compensar el espacio del navbar fijo - removido para que la imagen ocupe todo el espacio */
+body {
+    padding-top: 0;
+}
+
+/* ---------------- PROYECTOS ---------------- */
+/* ---------- PROYECTOS AMARILLOS ---------- */
+.projects-yellow {
+    background: var(--verde-3);
+    color: var(--blanco);
+    padding: 5rem 2rem;
+}
+
+.projects-yellow h2 {
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+
+#historias h2 {
+    font-size: 2rem;
+    color: var(--verde-4);
+}
+
+#historias h3 {
+    color: var(--verde-4);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#historias p {
+    color: #2c3e50;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+#historias .row {
+    align-items: stretch;
+    min-height: 350px;
+}
+
+#historias img {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#historias .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#historias .col-md-6:has(img) {
+    display: flex;
+    align-items: stretch;
+}
+
+#historias .col-md-6:has(img) img {
+    align-self: stretch;
+}
+
+
+
+/* ---------- SECCIÓN APOYO CON IMAGEN OSCURA ---------- */
+.apoyo-banner {
+    position: relative;
+    background-image: url('https://www.anahuac.mx/veracruz/sites/default/files/2021-08/congreso-internacional-cofir-2021_01.jpg');
+    /* tu imagen aquí */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--blanco);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.apoyo-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* capa oscura */
+    z-index: 0;
+}
+
+.apoyo-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.apoyo-banner h2,
+.apoyo-banner p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.apoyo-banner .btn {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 12px;
+    min-width: 200px;
+    transition: transform 0.2s ease;
+}
+
+.apoyo-banner .btn:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* ---------------- INDICADORES DE AVANCE ---------------- */
+.progress {
+    height: 25px;
+    border-radius: 12px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.progress-bar.bg-success {
+    background-color: var(--verde-4) !important;
+}
+
+.progress-bar.bg-info {
+    background-color: var(--verde-3) !important;
+}
+
+.progress-bar.bg-warning {
+    background-color: var(--verde-5) !important;
+    color: var(--verde-1);
+}
+
+/* ---------- FORMAS DE APOYO ---------- */
+#apoyo .card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    color: var(--negro);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* sombra más marcada */
+    padding: 1.5rem;
+    /* más espacio interno */
+}
+
+#apoyo .card:hover {
+    transform: translateY(-8px);
+    /* efecto hover más notorio */
+}
+
+#apoyo h2 {
+    color: var(--verde-4);
+    font-size: 2rem;
+    /* título principal más grande */
+}
+
+#apoyo .card-body h3 {
+    color: var(--verde-4);
+    font-weight: bold;
+    font-size: 1.3rem;
+    /* subtítulos más grandes */
+    margin-bottom: 0.8rem;
+}
+
+#apoyo .card-body p {
+    color: var(--negro);
+    font-size: 1.1rem;
+    /* texto más grande */
+    line-height: 1.6;
+}
+
+.support-blocks h2 {
+    font-size: 2rem;
+    color: var(--verde-4);
+}
+
+.support-blocks h3 {
+    color: var(--verde-4);
+    font-weight: bold;
+}
+
+.support-blocks p {
+    color: var(--negro);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ---------- SECCIÓN QUIENES SOMOS - COLUMNAS IGUALES ---------- */
+#quienes-somos .section-title {
+    padding-bottom: 3rem;
+}
+
+#quienes-somos .equal-height-columns {
+    align-items: stretch;
+}
+
+#quienes-somos .equal-height-columns > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#quienes-somos .image-wrapper {
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+    align-items: stretch;
+}
+
+#quienes-somos .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#quienes-somos .text-wrapper {
+    padding: 2rem;
+    background-color: var(--blanco);
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#quienes-somos .text-wrapper h3 {
+    color: var(--verde-4);
+    margin-bottom: 1.5rem;
+}
+
+#quienes-somos .text-wrapper p {
+    color: #2c3e50;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+
+
+/* ---------------- CONTACTO ---------------- */
+.contact form .form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.contact form .btn {
+    margin-top: 1rem;
+}
+
+.contact-info {
+    margin-top: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+/* Tarjetas de proyectos con efecto glass */
+.projects-yellow .card {
+    background: transparent;
+    border: none;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
+    position: relative;
+}
+
+.projects-yellow .card:hover {
+    transform: translateY(-8px);
+}
+
+.projects-yellow .card-img-top {
+    height: 240px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 0;
+    transition: transform 0.4s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.projects-yellow .card:hover .card-img-top {
+    transform: scale(1.02);
+}
+
+.projects-yellow .card-body {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-top: 0;
+    z-index: 1;
+}
+
+.projects-yellow .card:hover .card-body {
+    box-shadow: 0 16px 48px rgba(142, 182, 155, 0.15);
+    border-color: rgba(142, 182, 155, 0.3);
+}
+
+.projects-yellow .card h3 {
+    color: var(--verde-5);
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.projects-yellow .card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        rgba(142, 182, 155, 0.8), 
+        rgba(218, 241, 222, 0.8));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.projects-yellow .card:hover h3::after {
+    width: 60px;
+}
+
+.projects-yellow .card p {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.projects-yellow .badge,
+.projects-yellow .badge.bg-dark {
+    background: linear-gradient(135deg, 
+        rgba(35, 83, 71, 0.95) 0%, 
+        rgba(35, 83, 71, 0.85) 100%) !important;
+    color: var(--blanco) !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(35, 83, 71, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: none;
+}
+
+.projects-yellow .badge:hover,
+.projects-yellow .badge.bg-dark:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(35, 83, 71, 0.4);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .banner {
+        padding: 4rem 1rem;
+        min-height: 80vh;
+    }
+    
+    .hero {
+        padding-top: 80px;
+    }
+    
+    .mission-vision {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+    
+    .block {
+        min-height: auto;
+        margin-bottom: 1.5rem;
+    }
+    
+    #quienes-somos .equal-height-columns {
+        flex-direction: column;
+    }
+    
+    #historias .row {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    #historias img {
+        min-height: 250px;
+        max-height: 300px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .projects-yellow {
+        padding: 3rem 1rem;
+    }
+    
+    .projects-yellow h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .projects-yellow .card-body {
+        padding: 1.5rem;
+    }
+    
+    .apoyo-banner {
+        padding: 3rem 1rem !important;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
